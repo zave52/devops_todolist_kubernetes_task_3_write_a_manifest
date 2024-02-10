@@ -37,15 +37,15 @@ Create a kubernetes manifest for a pod which will containa ToDo app container:
 1. Modify ToDo app code to add /ready endpoint, which will have a 30 sec delay before starting to return status code 200
 1. Build your image and push to your personal Docker Hub account into the `todoapp` repository with the `3.0.0` tag (`todoapp:3.0.0`)
 1. All manifests should be located under `.infrastructure` folder
-1. Create a `manifest` which can be used to create a namespace (name it after your githab handle, i.e.: `ikulyk404`)
+1. Create a `manifest` which can be used to create a namespace (name it after your githab handle, i.e.: `ikulyk404`). File should be named `namespace.yml` and should contain the following content:
 ```
 apiVersion: v1
 kind: Namespace
 metadata:
  name: ikulyk404
 ```
-8. Creata a pod `manifest` which will start a `busyboxplus:curl` container in a cluster
-1. Create a pod `manifest` which will be using previously created image with tag `{yourname}/todoapp:3.0.0`
+8. Creata a pod `manifest` which will start a `busyboxplus:curl` container in a cluster. File should be named `busybox.yml`.
+1. Create a pod `manifest` which will be using previously created image with tag `{yourname}/todoapp:3.0.0`. File should be named `todoapp-pod.yml`.
 1. ToDo app pod `manifest` should have a readiness probe configured
 1. ToDo app pod `manifest` should have a liveness probe configured
 1. `README.md` file should contain instructions on how to apply all manifests
