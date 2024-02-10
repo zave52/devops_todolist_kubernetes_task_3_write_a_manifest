@@ -29,18 +29,27 @@ Now you can browse the [API](http://localhost:8000/api/) or start on the [landin
 
 ## Task
 
-Create a `Dockerfile` for the ToDo app:
+Create a kubernetes manifest for a pod which will containa ToDo app container:
 
 1. Fork this repository.
-1. ToDo app should start inside a container without an error.
-1. `Dockerfile` should contain the build stage and run stage.
-1. Add `ARG` as Python base image version in `Dockerfile`.
-1. Execute database migration as `RUN` instruction.
-1. Add the `ENV PYTHONUNBUFFERED=1` variable to optimize the Python app for Docker (writing logs directly to `stdout` and `stderr` without buffering in the app process memory.
-1. `runserver` should be followed by the `0.0.0.0:8080` parameter to start the Django server properly.
-1. Build an image and name it `todoapp`.
-1. The image should be pushed to your personal Docker Hub account into the `todoapp` repository with the `1.0.0` tag (`todoapp:1.0.0`).
-1. `README.md` should contain a link to your personal Docker Hub repository win an app image.
-1. `README.md` should contain all the instructions for building and running the container.
-1. `README.md` should contain instructions on accessing the application via a browser.
+1. Create a simple `Dockerfile` for the ToDo application
+7. Modify ToDo app code to add /health endpoint
+1. Modify ToDo app code to add /ready endpoint, which will have a 30 sec delay before starting to return status code 200
+1. Build your image and push to your personal Docker Hub account into the `todoapp` repository with the `3.0.0` tag (`todoapp:3.0.0`)
+1. All manifests should be located under `.infrastructure` folder
+1. Create a `manifest` which can be used to create a namespace (name it after your githab handle, i.e.: `ikulyk404`)
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: ikulyk404
+```
+8. Creata a pod `manifest` which will start a `busyboxplus:curl` container in a cluster
+1. Create a pod `manifest` which will be using previously created image with tag `{yourname}/todoapp:3.0.0`
+1. ToDo app pod `manifest` should have a readiness probe configured
+1. ToDo app pod `manifest` should have a liveness probe configured
+1. `README.md` file should contain instructions on how to apply all manifests
+1. `README.md` file should contain instructions on how to test ToDo application using the `port-forward` command
+1. `README.md` file should contain instructions on how to test application using the
+`busyboxplus:curl` container
 1. Create PR with your changes and attach it for validation on a platform.
