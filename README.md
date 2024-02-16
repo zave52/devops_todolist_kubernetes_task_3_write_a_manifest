@@ -33,8 +33,8 @@ Create a kubernetes manifest for a pod which will containa ToDo app container:
 
 1. Fork this repository.
 1. Create a simple `Dockerfile` for the ToDo application
-7. Find code to uncomment to enable the `ready` endpoint
-1. Find code to uncomment to enable the `health` endpoint
+7. Add readiness endpoint code to `api` of the appliation (modify `api/views.py` and `api/urls.py`)
+1. Add liveness endpoint cide to `api` of the application (modify `api/views.py` and `api/urls.py`)
 1. Build your image and push to your personal Docker Hub account into the `todoapp` repository with the `3.0.0` tag (`todoapp:3.0.0`)
 1. All manifests should be located under `.infrastructure` folder
 1. Create a `manifest` which can be used to create a namespace. File should be named `namespace.yml` and should contain the following content:
