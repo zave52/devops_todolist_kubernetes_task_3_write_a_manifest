@@ -44,7 +44,7 @@ kind: Namespace
 metadata:
  name: todoapp
 ```
-8. Creata a pod `manifest` which will start a `busyboxplus:curl` container in a cluster. File should be named `busybox.yml`.
+8. Creata a pod `manifest` which will start a `radial/busyboxplus:curl` container in a cluster. File should be named `busybox.yml`.
 1. Create a pod `manifest` which will be using previously created image with tag `{yourname}/todoapp:3.0.0`. File should be named `todoapp-pod.yml`.
 1. ToDo app pod `manifest` should have a readiness probe configured
 1. ToDo app pod `manifest` should have a liveness probe configured
