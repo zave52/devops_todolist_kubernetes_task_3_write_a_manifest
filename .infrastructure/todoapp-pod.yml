@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todoapp
+  namespace: todoapp
+spec:
+  containers:
+    - name: todoapp
+      image: zaavee/todoapp:3.0.0
+      ports:
+        - containerPort: 8000
+      livenessProbe:
+        httpGet:
+          path: /api/health
+          port: 8000
+        initialDelaySeconds: 30
+        periodSeconds: 5
+      readinessProbe:
+        httpGet:
+          path: /api/ready
+          port: 8000
+        initialDelaySeconds: 5
+        periodSeconds: 5
