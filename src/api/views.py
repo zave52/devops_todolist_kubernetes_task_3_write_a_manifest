@@ -64,6 +64,7 @@ class TodoViewSet(viewsets.ModelViewSet):
 
 
 class ReadinessView(APIView):
+    permission_classes = []
 
     def get(self, request: Request) -> HttpResponse:
         elapsed_time = timezone.now() - startup_time
@@ -74,6 +75,7 @@ class ReadinessView(APIView):
 
 
 class LivenessView(APIView):
+    permission_classes = []
 
     def get(self, request: Request) -> HttpResponse:
         return HttpResponse("Healthy", status=200)
