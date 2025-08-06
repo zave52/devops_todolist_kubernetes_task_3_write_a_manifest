@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /app
 
-COPY src/* .
+COPY src .
 
 RUN pip install -r requirements.txt --no-cache-dir
 
