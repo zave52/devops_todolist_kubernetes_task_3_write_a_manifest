@@ -35,7 +35,7 @@ kubectl get pods -n todoapp
  kubectl port-forward pod/todoapp 8000:8000 -n todoapp
 ```
 
-### 2. Open browser at [http://localhost:8000](http://localhost:8000) address
+### 3. Open browser at [http://localhost:8000](http://localhost:8000) address
 
 
 ## Testing todoapp using busybox
